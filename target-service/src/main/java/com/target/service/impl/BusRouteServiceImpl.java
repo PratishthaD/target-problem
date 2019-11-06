@@ -124,9 +124,15 @@ public class BusRouteServiceImpl implements BusRouteService {
 			NextTripDto[] res = mapper.readValue(response, NextTripDto[].class);
 			if (res.length > 0) {
 				return res[0];
-			} 
+			} else {
+				System.out.println("Sorry, Information regarding next bus is not available. Please try again later.");
+				return null;
+			}
+		} else {
+			System.out.println("Your data is incorrect. Either route, BusStop or direction is missing.");
+			return null;
 		}
-		return null;
+		
 	}
 
 	

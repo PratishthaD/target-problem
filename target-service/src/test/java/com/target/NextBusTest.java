@@ -13,10 +13,8 @@ import com.target.dtos.InputDto;
 public class NextBusTest {
 
 	@Test
-	public void getNextBusTest() throws JsonParseException, JsonMappingException, IOException {
-
-		InputDto input = setInput();
-		Double timeDIff = NextBus.getNextBus(input);
+	public void testGetNextBus() throws JsonParseException, JsonMappingException, IOException {
+		 Double timeDIff =  NextBus.printNextBusDetails(setInput());
 		assertTrue(timeDIff > 0.00);
 
 	}
@@ -25,7 +23,7 @@ public class NextBusTest {
 		InputDto dto = new InputDto();
 		dto.setRoute("METRO Green Line");
 		dto.setDirection("EAST");
-		dto.setBusStop("Union Depot ");
+		dto.setBusStop("Target Field Station Platform 1");
 		return dto;
 	}
 
